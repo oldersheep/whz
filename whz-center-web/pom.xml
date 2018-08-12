@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>whz-center-web</artifactId>
+    <name>whz-center-web</name>
+    <packaging>war</packaging>
+
+    <parent>
+        <artifactId>whz</artifactId>
+        <groupId>top.deramertn9527</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <velocity.version>1.7</velocity.version>
+        <velocity.tools.version>2.0</velocity.tools.version>
+        <sso.uim.spring.version>1.0.0-SNAPSHOT</sso.uim.spring.version>
+    </properties>
+
+    <dependencies>
+        <!-- velocity -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>${velocity.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-tools</artifactId>
+            <version>${velocity.tools.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>dom4j</groupId>
+                    <artifactId>dom4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>antlr</groupId>
+                    <artifactId>antlr</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- velocity -->
+
+        <!-- spring mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- spring mvc -->
+
+        <dependency>
+            <groupId>top.deramertn9527</groupId>
+            <artifactId>whz-center-gateway</artifactId>
+        </dependency>
+
+        <!-- spring junit4 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- spring junit4 -->
+    </dependencies>
+
+    <build>
+        <finalName>whz-center-web</finalName>
+        <resources>
+            <!-- pom profile properties replace properties 占位符 -->
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>properties/*.properties</include>
+                    <include>properties/*.yml</include>
+                    <include>spring/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/properties/${profile-id}/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                    <include>*.yml</include>
+                </includes>
+                <targetPath>properties</targetPath>
+            </resource>
+            <resource>
+                <directory>src/main/resources/spring/${profile-id}/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.xml</include>
+                </includes>
+                <targetPath>spring</targetPath>
+            </resource>
+            <!-- logback 配置 -->
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/logback.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <profile-id>development</profile-id>
+                <!-- 日志配置 -->
+                <log.level>INFO</log.level>
+                <log.home>top.deramertn9527</log.home>
+                <log.prefix>whz</log.prefix>
+                <!-- 日志配置 -->
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile-id>development</profile-id>
+
+                <!-- 日志配置 -->
+                <log.level>INFO</log.level>
+                <log.home>top.deramertn9527</log.home>
+                <log.prefix>whz</log.prefix>
+                <!-- 日志配置 -->
+            </properties>
+        </profile>
+
+        <profile>
+            <id>production</id>
+            <properties>
+                <profile-id>production</profile-id>
+                <!-- 日志配置 -->
+                <log.level>ERROR</log.level>
+                <log.home>top.deramertn9527</log.home>
+                <log.prefix>whz</log.prefix>
+                <!-- 日志配置 -->
+            </properties>
+        </profile>
+    </profiles>
+
+
+</project>

@@ -1,0 +1,73 @@
+<div id="navigator">
+    <i-Menu mode="horizontal" theme="dark" @on-select="route" :active-name="defaultUrl">
+        <div class="layout-logo"></div>
+        <div class="layout-nav">
+            <Menu-item name="/">
+                <Icon type="ios-navigate"></Icon>
+                首页
+            </Menu-item>
+            <Menu-item name="/view/system/index">
+                <Icon type="ios-keypad"></Icon>
+##                测试哦
+            </Menu-item>
+##            <Menu-item name="/view/test/testList">
+##                <Icon type="ios-analytics"></Icon>
+##                导航三
+##            </Menu-item>
+##            <Menu-item name="/view/test/testTag">
+##                <Icon type="ios-paper"></Icon>
+##                导航四
+##            </Menu-item>
+        </div>
+        <div class="layout-user">
+            <i-button type="text" @click="logout" size="large">
+                <Icon type="person" color="#57a3f3"></Icon>
+                $!webHelper.getPin()
+            </i-button>
+        </div>
+    </i-Menu>
+</div>
+
+<script>
+    new Vue({
+        el: '#navigator',
+        data: function () {
+            return {
+                defaultUrl: '/'
+            };
+        },
+        methods: {
+            logout: function () {
+                var config = {
+                    'title': '确认提示',
+                    'content': '<p>是否确认要退出系统?</p>',
+                    'okText': '确定',
+                    'closable': true,
+                    'onOk': function () {
+                        window.location.href = '/system/logout';
+                    }
+                };
+                this.$Modal.info(config);
+            },
+            route: function (url) {
+                window.location.href = url;
+            },
+            getURI: function () {
+                var url = window.location.href;
+                var index = url.indexOf("?");
+                if (index != -1) {
+                    url = url.substr(0, index);
+                }
+                var host = window.location.host;
+                index = url.indexOf(host) + host.length;
+                url = url.substr(index);
+                if (url != '/') {
+                    this.defaultUrl = url;
+                }
+            }
+        },
+        mounted: function () {
+            this.getURI();
+        }
+    });
+</script>

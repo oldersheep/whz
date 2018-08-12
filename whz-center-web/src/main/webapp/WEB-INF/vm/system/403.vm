@@ -1,0 +1,17 @@
+<div id="error">
+    <template>
+        <div style="background:#eee;padding: 20px">
+            <Card :bordered="false">
+                <p slot="title">没有权限</p>
+                <p>您未授权</p>
+                <a href="/system/logout" class="btn btn-danger">跳转登陆页面</a>
+            </Card>
+        </div>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#error'
+    })
+</script>

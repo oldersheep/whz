@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>whz</artifactId>
+        <groupId>top.deramertn9527</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>whz-center-dao</artifactId>
+
+    <name>whz-center-dao</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.data.hadoop>2.5.0.RELEASE</spring.data.hadoop>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>top.deramertn9527</groupId>
+            <artifactId>whz-center-domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-hadoop</artifactId>
+            <version>${spring.data.hadoop}</version>
+        </dependency>
+    </dependencies>
+
+</project>

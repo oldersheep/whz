@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>whz</artifactId>
+        <groupId>top.deramertn9527</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>whz-center-domain</artifactId>
+
+    <name>whz-center-domain</name>
+
+    <properties>
+        <mongodb.version>1.10.8.RELEASE</mongodb.version>
+        <mongodb.driver.version>2.14.3</mongodb.driver.version>
+        <elasticsearch.version>3.0.9.RELEASE</elasticsearch.version>
+        <spring.data.version>1.11.8.RELEASE</spring.data.version>
+        <mysql.connection.version>5.1.45</mysql.connection.version>
+        <tomcat.jdbc.version>7.0.56</tomcat.jdbc.version>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <antlr.version>2.7.7</antlr.version>
+        <hibernate.entitymanager.version>5.2.17.Final</hibernate.entitymanager.version>
+        <jedis.version>2.9.0</jedis.version>
+        <jedis.cluster.version>1.7.2.RELEASE</jedis.cluster.version>
+    </properties>
+
+    <dependencies>
+        <!-- mongodb -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${mongodb.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongodb.driver.version}</version>
+        </dependency>
+        <!-- mongodb -->
+
+        <!-- elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>${elasticsearch.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- elasticsearch -->
+
+        <!-- mysql -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connection.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.entitymanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>${antlr.version}</version>
+        </dependency>
+        <!-- mysql -->
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${jedis.cluster.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>top.deramertn9527</groupId>
+            <artifactId>whz-center-common</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,18 @@
+#set($layoutPath="/layout/frame")
+
+<!DOCTYPE html>
+<html>
+####引入header标签
+    #parse("$layoutPath/header.vm")
+<body id="frame">
+    #parse("$layoutPath/app.vm")
+<div class="layout">
+##引入 navigator page
+    #parse("$layoutPath/navigator.vm")
+##引入 main page
+    #parse("$layoutPath/main.vm")
+##引入 navigator page
+    #parse("$layoutPath/footer.vm")
+</div>
+</body>
+</html>

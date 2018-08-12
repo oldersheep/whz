@@ -1,0 +1,18 @@
+<head>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit"/>
+    <title>测试</title>
+
+    <!-- vue js -->
+    <script src="/static/js/vue/vue.min.js" charset="utf-8"></script>
+
+    <!-- iview js -->
+    <script src="/static/js/iview/iview.min.js" charset="utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/iview/iview.css">
+
+    <!-- axios js -->
+    <script src="/static/js/axios/axios.min.js" charset="utf-8"></script>
+</head>

@@ -1,0 +1,12 @@
+spring:
+  velocity:
+    viewresolver:
+      resourceLoaderPath: /WEB-INF/vm/
+      configLocation: properties/spring-velocity-configurer.properties
+      cache: true
+      prefix:
+      suffix: .vm
+      layoutUrl: layout/frame.vm
+      dateToolAttribute: date
+      numberToolAttribute: number
+      contentType: text/html;charset=UTF-8

@@ -1,0 +1,46 @@
+datasource:
+  mongodb:
+    host: 192.168.158.132:50184
+    username: root
+    password: root
+    dbname: test
+    method: development
+  redis:
+    maxIdle: 300
+    maxTotal: 1000
+    maxWaitMillis: 1000
+    minEvictableIdleTimeMillis: 300000
+    numTestsPerEvictionRun: 1024
+    timeBetweenEvictionRunsMillis: 30000
+    testOnBorrow: true
+    testWhileIdle: true
+    cluster:
+      nodes: 192.168.158.132:9001,192.168.158.132:9002,192.168.158.132:9003,192.168.158.132:9004,192.168.158.132:9005,192.168.158.132:9006
+      max-redirects: 3
+  mysql:
+    driverClass: com.mysql.jdbc.Driver
+    initialSize: 10
+    minIdle: 3
+    maxIdle: 5
+    maxWait: -1
+    maxActive: 20
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    validationQuery: SELECT 1
+    validationInterval: 30000
+    timeBetweenEvictionRunsMillis: 30000
+    minEvictableIdleTimeMillis: 30000
+    one:
+      url: jdbc:mysql://192.168.158.132:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
+      username: root
+      password: root
+    two:
+      url: jdbc:mysql://192.168.158.132:3306/test2?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
+      username: root
+      password: root
+hibernate:
+  hbm2ddl.auto: none
+  show.sql: true
+  format.sql: true
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect

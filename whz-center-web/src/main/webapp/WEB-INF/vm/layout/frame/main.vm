@@ -1,0 +1,30 @@
+<div id="main" class="layout-breadcrumb">
+
+</div>
+<div class="layout-content">
+
+</div>
+
+<script>
+    new Vue({
+        el: '#main',
+        data: {
+            first: true,
+            second: true,
+            third: true
+        },
+        methods: {
+            refreshBreadcrumb: function () {
+                if ("undefined" != typeof $second) {
+                    this.second = $second;
+                }
+                if ("undefined" != typeof $third) {
+                    this.third = $third;
+                }
+            }
+        },
+        mounted: function () {
+            this.refreshBreadcrumb();
+        }
+    })
+</script>
