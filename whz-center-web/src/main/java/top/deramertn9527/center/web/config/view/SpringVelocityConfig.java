@@ -65,9 +65,6 @@ public class SpringVelocityConfig {
         viewResolver.setDateToolAttribute(dateToolAttribute);
         viewResolver.setNumberToolAttribute(numberToolAttribute);
         viewResolver.setContentType(contentType);
-//        Map attributesMap = new HashMap(Constant.HASHMAP_INITIAL_CAPACITY);
-//        attributesMap.put("webHelper", new WebHelper());
-//        viewResolver.setAttributesMap(attributesMap);
         return viewResolver;
     }
 }
