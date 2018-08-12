@@ -313,25 +313,6 @@ public class RedisClient{
                 return status;
             }
 
-            private void potentiallyUsePsetEx(RedisConnection connection) {
-                if (!TimeUnit.MILLISECONDS.equals(unit) || !this.failsafeInvokePsetEx(connection)) {
-                    connection.setEx(rawKey, TimeoutUtils.toSeconds(timeout, unit), rawValue);
-                }
-
-            }
-
-            private boolean failsafeInvokePsetEx(RedisConnection connection) {
-                boolean failed = false;
-
-                try {
-                    connection.pSetEx(rawKey, timeout, rawValue);
-                } catch (UnsupportedOperationException var4) {
-                    failed = true;
-                }
-
-                return !failed;
-            }
-
         }, true);
     }
 
