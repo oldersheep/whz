@@ -64,7 +64,7 @@ public class MongoConfig {
      */
     private MongoTemplate mongoDevTemplate() {
         try {
-            String url = "mongodb://" + username + ":" + password + "@" + host + "/?authMechanism=MONGODB-CR";
+            String url = "mongodb://" + username + ":" + password + "@" + host + "";
             MongoClientURI mongoClientURI = new MongoClientURI(url);
             Mongo mongo = new MongoClient(mongoClientURI);
             return new MongoTemplate(mongo, dbName);
