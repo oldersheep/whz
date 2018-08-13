@@ -1,9 +1,9 @@
 datasource:
   mongodb:
-    host: 192.168.158.132:50184
+    host: 192.168.158.132:27017
     username: root
     password: root
-    dbname: test
+    dbname: mongo_test
     method: development
   redis:
     maxIdle: 300
@@ -15,7 +15,7 @@ datasource:
     testOnBorrow: true
     testWhileIdle: true
     cluster:
-      nodes: 192.168.158.132:9001,192.168.158.132:9002,192.168.158.132:9003,192.168.158.132:9004,192.168.158.132:9005,192.168.158.132:9006
+      nodes: 192.168.158.132:9001,192.168.158.132:9002,192.168.158.133:9003,192.168.158.133:9004,192.168.158.134:9005,192.168.158.134:9006
       max-redirects: 3
   mysql:
     driverClass: com.mysql.jdbc.Driver

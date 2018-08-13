@@ -23,11 +23,11 @@ import java.util.List;
  */
 @Configuration
 @Slf4j
-//@ImportResource(
-//        value = {
-//                "classpath:spring/*.xml"
-//        }
-//)
+@ImportResource(
+        value = {
+                "classpath:spring/*.xml"
+        }
+)
 @ComponentScan({"top.deramertn9527"})
 @EnableScheduling
 public class SpringConfig {
