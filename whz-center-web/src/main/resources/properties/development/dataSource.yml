@@ -1,6 +1,6 @@
 datasource:
   mongodb:
-    host: 192.168.158.132:27017
+    host: 192.168.158.133:27017
     username: root
     password: root
     dbname: mongo_test
@@ -15,7 +15,7 @@ datasource:
     testOnBorrow: true
     testWhileIdle: true
     cluster:
-      nodes: 192.168.158.132:9001,192.168.158.132:9002,192.168.158.133:9003,192.168.158.133:9004,192.168.158.134:9005,192.168.158.134:9006
+      nodes: 192.168.158.133:9001,192.168.158.133:9002,192.168.158.134:9003,192.168.158.134:9004,192.168.158.135:9005,192.168.158.135:9006
       max-redirects: 3
   mysql:
     driverClass: com.mysql.jdbc.Driver
@@ -32,11 +32,11 @@ datasource:
     timeBetweenEvictionRunsMillis: 30000
     minEvictableIdleTimeMillis: 30000
     one:
-      url: jdbc:mysql://192.168.158.132:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
+      url: jdbc:mysql://192.168.158.133:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
       username: root
       password: root
     two:
-      url: jdbc:mysql://192.168.158.132:3306/test2?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
+      url: jdbc:mysql://192.168.158.133:3306/test2?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true
       username: root
       password: root
 hibernate:
