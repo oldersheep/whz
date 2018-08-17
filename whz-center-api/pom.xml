@@ -50,4 +50,16 @@
             </plugins>
         </pluginManagement>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>dreamertn9527-center</id>
+            <name>Nexus Releases Repository</name>
+            <url>http://192.168.158.133:8081/repository/dreamertn9527-center/</url>
+        </repository>
+        <snapshotRepository>
+            <id>dreamertn9527-snapshots</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>http://192.168.158.133:8081/repository/dreamertn9527-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
