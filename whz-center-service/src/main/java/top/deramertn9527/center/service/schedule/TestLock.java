@@ -19,7 +19,7 @@ public class TestLock extends AbstractLockWorker {
     @Autowired
     private TestService testService;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+    @Scheduled(cron = "0 */59 * * * ?")
     public void start() {
         super.work(2L);
     }
