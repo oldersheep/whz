@@ -3,7 +3,7 @@ dubbo:
     name: whz-center
     owner: dreamertn9527
   zk:
-    servers: 192.168.158.132:2181,192.168.158.133:2181,192.168.158.134:2181
+    servers: 192.168.158.133:2181,192.168.158.134:2181,192.168.158.135:2181
     group: dubbo-dev
   service:
     port: 20880
