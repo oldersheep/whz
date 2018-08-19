@@ -28,9 +28,9 @@ public class TestSchedule extends AbstractLockWorker {
     protected void workDetail() throws Exception {
         for (int i = 0; i < 50; i++) {
             try {
-                System.out.println("正在执行----num " + num);
+                System.out.println("正在执行----num " + i);
                 TestPO testPO = new TestPO();
-                testPO.setRfId(num);
+                testPO.setRfId((long) i);
                 testPO.setName(UUID.randomUUID().toString());
                 testService.create(testPO);
                 System.out.println(JSON.toJSONString(testPO));
