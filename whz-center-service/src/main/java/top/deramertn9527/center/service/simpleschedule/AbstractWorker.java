@@ -1,8 +1,6 @@
 package top.deramertn9527.center.service.simpleschedule;
 
-/**
- * @author wangjiaming1
- */
+
 public abstract class AbstractWorker {
 
     /**
