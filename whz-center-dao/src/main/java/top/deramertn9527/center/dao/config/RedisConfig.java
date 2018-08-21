@@ -1,6 +1,5 @@
 package top.deramertn9527.center.dao.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,9 +51,6 @@ public class RedisConfig {
     @Value("${datasource.redis.cluster.max-redirects}")
     private Integer mmaxRedirectsac;
 
-    /**
-     * JedisPoolConfig 连接池
-     */
     @Bean
     public JedisPoolConfig jedisPoolConfig() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -77,17 +73,9 @@ public class RedisConfig {
         return jedisPoolConfig;
     }
 
-    /**
-     * Redis集群的配置
-     * @return RedisClusterConfiguration
-     * @autor lpl
-     * @date 2017年12月22日
-     * @throws
-     */
     @Bean
     public RedisClusterConfiguration redisClusterConfiguration(){
         RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration();
-        //Set<RedisNode> clusterNodes
         String[] serverArray = clusterNodes.split(",");
 
         Set<RedisNode> nodes = new HashSet<RedisNode>();
@@ -102,26 +90,12 @@ public class RedisConfig {
 
         return redisClusterConfiguration;
     }
-    /**
-     * 配置工厂
-     * @Title: JedisConnectionFactory
-     * @param @param jedisPoolConfig
-     * @param @return
-     * @return JedisConnectionFactory
-     * @autor lpl
-     * @date 2017年12月22日
-     * @throws
-     */
+
     @Bean
     public JedisConnectionFactory redisConnectionFactory(JedisPoolConfig jedisPoolConfig, RedisClusterConfiguration redisClusterConfiguration){
         return new JedisConnectionFactory(redisClusterConfiguration, jedisPoolConfig);
     }
 
-    /**
-     * 实例化 RedisTemplate 对象
-     *
-     * @return
-     */
     @Bean
     public RedisTemplate<String, Object> functionDomainRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -136,14 +110,7 @@ public class RedisConfig {
         return redisClient;
     }
 
-    /**
-     * 设置数据存入 redis 的序列化方式,并开启事务
-     *
-     * @param redisTemplate
-     * @param factory
-     */
     private void initDomainRedisTemplate(RedisTemplate<String, Object> redisTemplate, RedisConnectionFactory factory) {
-        //如果不配置Serializer，那么存储的时候缺省使用String，如果用User类型存储，那么会提示错误User can't cast to String！
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());
         redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());

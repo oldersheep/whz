@@ -1,5 +1,6 @@
 package top.deramertn9527.center.web.config.spring;
 
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
@@ -64,6 +65,7 @@ public class SpringConfig {
             }
         }
         propertyPlaceholderConfigurer.setIgnoreResourceNotFound(true);
+
         return propertyPlaceholderConfigurer;
     }
 }

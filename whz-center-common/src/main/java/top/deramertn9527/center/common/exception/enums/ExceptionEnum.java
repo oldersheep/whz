@@ -10,7 +10,12 @@ public enum ExceptionEnum {
      */
     CHECK_PARAM_ERROR(403, "参数不合法！", ""),
 
-    CHECK_PARAM_ACTIVITY_TYPE_ERROR(403010001, "查询类型不合法！", ""),
+    CHECK_PARAM_GROUP_NAME_ERROR(403010001, "groupName为空", ""),
+    CHECK_PARAM_NAME_SERVER_ERROR(403010002, "nameServer为空", ""),
+    CHECK_PARAM_TOPIC_ERROR(403010002, "topic为空", ""),
+
+
+
     /**
      * 不能为空
      */

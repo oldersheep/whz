@@ -6,14 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 类描述:
- *
- * @author:tangniannian
- * @date:2018/8/12
- * @修改描述：
- * @modifier ${tags}
- */
+
 @Data
 @Entity
 @Table(name = "test")

@@ -1,0 +1,13 @@
+activeMQ:
+  brokerURL: tcp://192.168.158.135:61616?wireFormat.maxInactivityDurationInitalDelay=30000
+  maxThreadPoolSize: 1000
+  sessionCacheSize: 100
+  topic:
+    testTopic: testTopic
+    whz: whz
+
+
+
+
+
+

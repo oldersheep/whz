@@ -12,14 +12,7 @@ import top.deramertn9527.center.domain.mongo.ScheduleTaskLogPO;
 
 import java.util.Date;
 
-/**
- * 类描述:
- *
- * @author:tangniannian
- * @date:2018/8/12
- * @修改描述：
- * @modifier ${tags}
- */
+
 @Repository
 public class ScheduleTaskLogDaoImpl implements ScheduleTaskLogDao {
 
