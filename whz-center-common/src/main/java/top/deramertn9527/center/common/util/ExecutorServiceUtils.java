@@ -18,11 +18,15 @@ public class ExecutorServiceUtils {
     /**
      * 线程池最大线程数: 10
      */
-    private static final int MAXIMUM_POOL_SIZE = 5;
+    private static final int MAXIMUM_POOL_SIZE = 10;
     /**
      * 线程空闲时间: 60
      */
     private static final long KEEP_ALIVE_TIME = 60;
+    /**
+     * 阻塞队列最大数
+     */
+    private static final int MAX_QUEUE_SIZE = 50;
     /**
      * 线程空闲时间单位: 秒
      */
@@ -30,13 +34,14 @@ public class ExecutorServiceUtils {
     /**
      * 线程池阻塞队列：LinkedBlockingQueue，长度Integer.MAX_VALUE
      */
-    private static final LinkedBlockingQueue<Runnable> WORK_QUEUE = new LinkedBlockingQueue<Runnable>();
+    private static final LinkedBlockingQueue<Runnable> WORK_QUEUE = new LinkedBlockingQueue<Runnable>(MAX_QUEUE_SIZE);
     /**
      * 线程池线程工厂对象
      */
-    private static final ThreadFactory THREAD_FACTORY = new TagCenterThreadFactory();
+    private static final ThreadFactory THREAD_FACTORY = new WhzThreadFactory();
     /**
      * 线程池拒绝策略：调用线程执行该线程
+     * 该策略为绕过run方法直接执行
      */
     private static final RejectedExecutionHandler HANDLER = new ThreadPoolExecutor.CallerRunsPolicy();
 
@@ -48,13 +53,13 @@ public class ExecutorServiceUtils {
     /**
      * 线程池，创建线程工厂
      */
-    private static class TagCenterThreadFactory implements ThreadFactory {
+    private static class WhzThreadFactory implements ThreadFactory {
         private static final AtomicInteger POOL_NUMBER = new AtomicInteger(1);
         private final ThreadGroup group;
         private final AtomicInteger threadNumber = new AtomicInteger(1);
         private final String namePrefix;
 
-        TagCenterThreadFactory() {
+        WhzThreadFactory() {
             SecurityManager s = System.getSecurityManager();
             group = (s != null) ? s.getThreadGroup() :
                     Thread.currentThread().getThreadGroup();
