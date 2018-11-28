@@ -66,7 +66,7 @@ public abstract class AbstractLockWorker implements InitializingBean {
     protected abstract Long doWork();
 
     /**
-     * lock key 在jimdb中，超时时间
+     * lock key 在redis中，超时时间
      * 默认：1分钟
      *
      * @return long
@@ -76,7 +76,7 @@ public abstract class AbstractLockWorker implements InitializingBean {
     }
 
     /**
-     * 尝试获取jimdb中，lock key的间隔时间
+     * 尝试获取redis中，lock key的间隔时间
      * 默认：1秒
      *
      * @return long

@@ -15,7 +15,7 @@ public abstract class AbstractLockWorker extends AbstractWorker {
 
 
     /**
-     * jimdb key前缀
+     * redis key前缀
      *
      * @return String
      */

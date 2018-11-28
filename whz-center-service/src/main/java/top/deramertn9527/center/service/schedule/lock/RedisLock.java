@@ -14,11 +14,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class RedisLock implements Lock {
 
     /**
-     * 锁jimdb key
+     * 锁redis key
      */
     private final String key;
     /**
-     * jimdb 客户端
+     * redis 客户端
      */
     private final RedisClient cluster;
     /**
