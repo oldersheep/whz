@@ -21,7 +21,7 @@ public class WhzCenterApiAop {
     /**
      * api service 切点
      */
-    @Pointcut("execution(public * top.deramertn9527.center.gateway.impl.*.*.*(..))")
+    @Pointcut("execution(public * top.deramertn9527.center.gateway.*.*.*(..))")
     public void pointcut() {
     }
 
